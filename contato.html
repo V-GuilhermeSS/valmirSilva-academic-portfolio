@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato · Meu Site</title>
+    <!-- ESTILOS PRINCIPAIS-->
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Valmir G S da Silva · Portfólio Online</h1>
+    </header>
+
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sobre_mim.html">Sobre mim</a>
+        <a href="formacao.html">Formação</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="contato.html" class="ativo">Contato</a>
+    </nav>
+
+    <!-- ASIDE -->
+    <aside>
+        <h3>Nesta página</h3>
+        <ul>
+            <li><a href="#formulario" class="ativo">📝 Formulário</a></li>
+        </ul>
+        <p style="margin-top: 1.8rem; font-size:0.8rem; color:#5c7393; border-top:1px solid #d0dcee; padding-top:1rem;">
+            <span style="font-weight:500;">📬 Contato</span><br />
+            <span style="font-size:0.75rem;">Preencha o formulário ao lado para enviar sua mensagem.</span>
+        </p>
+        <!-- Botão modo escuro no aside (desktop) -->
+        <button class="dark-mode-toggle dark-mode-toggle-desktop" id="darkModeToggleDesktop">🌙 Modo Escuro</button>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main-content">
+        <section id="formulario" style="margin-left: 5%; margin-right: 15%;">
+            <h2 style="text-align: center;">📝 Formulário de contato</h2>
+            <p style="text-align: center;">Envie uma mensagem preenchendo os campos abaixo:</p>
+
+            <form id="contactForm"
+                style="margin-top:1rem; background:#f8faff; padding:1.5rem; border-radius:16px; border:1px solid #dce3ef;">
+                <label for="nome" style="color: black;">Nome:</label><br>
+                <input type="text" id="nome" name="nome" required
+                    style="width:100%; padding:0.5rem; margin-top:0.3rem; margin-bottom:1rem;"><br>
+
+                <label for="email" style="color: black;">E-mail:</label><br>
+                <input type="email" id="email" name="email" required
+                    style="width:100%; padding:0.5rem; margin-top:0.3rem; margin-bottom:1rem;"><br>
+
+                <label for="mensagem" style="color: black;">Mensagem:</label><br>
+                <textarea id="mensagem" name="mensagem" required rows="5"
+                    style="width:100%; padding:0.5rem; margin-top:0.3rem; margin-bottom:1rem;"></textarea><br>
+
+                <button type="submit"
+                    style="background:#1e2f45; color:white; padding:0.6rem 1.5rem; border:none; border-radius:40px; cursor:pointer;">Enviar</button>
+            </form>
+
+            <p id="statusMsg" style="margin-top:1rem; font-size:0.9rem; color:#3e5a7a;"></p>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 — Meu Site · <a href="index.html">Início</a> · <a href="sobre_mim.html">Sobre mim</a> ·
+            <a href="formacao.html">Formação</a> · <a href="portfolio.html">Portfólio</a> · <a
+                href="contato.html">Contato</a>
+        </p>
+    </footer>
+    
+    <script>
+        // ===== MODO ESCURO =====
+        // Alterna entre modo escuro e claro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+
+            // Atualiza o texto do botão
+            const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+            buttons.forEach(btn => {
+                btn.textContent = isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+            });
+
+            // Salva preferência no localStorage
+            localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+        }
+
+        // Carrega a preferência salva ao iniciar
+        function loadDarkModePreference() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+
+                // Atualiza o texto dos botões
+                const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+                buttons.forEach(btn => {
+                    btn.textContent = '☀️ Modo Claro';
+                });
+            }
+        }
+
+        // ===== INICIALIZAÇÃO =====
+        // Carrega preferência salva quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDarkModePreference();
+
+            // Adiciona event listeners aos botões
+            const desktopBtn = document.getElementById('darkModeToggleDesktop');
+            const mobileBtn = document.getElementById('darkModeToggleMobile');
+
+            if (desktopBtn) {
+                desktopBtn.addEventListener('click', toggleDarkMode);
+            }
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', toggleDarkMode);
+            }
+        });
+
+        // ===== ENVIO DO FORMULÁRIO DE CONTATO =====
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const form = document.getElementById('contactForm');
+            const statusMsg = document.getElementById('statusMsg');
+            const submitButton = form.querySelector('button[type="submit"]');
+
+            // Verifica se os elementos necessários existem
+            if (!form || !statusMsg || !submitButton) {
+                console.error('Elementos do formulário não encontrados.');
+                return;
+            }
+
+            form.addEventListener('submit', function (event) {
+
+                // Impede o envio real do formulário
+                event.preventDefault();
+
+                // Evita múltiplos envios
+                if (submitButton.disabled) {
+                    return;
+                }
+
+                // Validação nativa do HTML
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // Obtém os dados do formulário
+                const formData = new FormData(form);
+
+                // Recupera os valores
+                const nome = formData.get('nome')?.trim();
+                const email = formData.get('email')?.trim();
+                const mensagem = formData.get('mensagem')?.trim();
+
+                // Validação adicional
+                if (!nome || !email || !mensagem) {
+                    statusMsg.textContent = '⚠️ Preencha todos os campos obrigatórios.';
+                    statusMsg.style.color = '#dc2626';
+                    return;
+                }
+
+                // Validação simples do e-mail
+                const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                if (!emailValido.test(email)) {
+                    statusMsg.textContent = '⚠️ Informe um endereço de e-mail válido.';
+                    statusMsg.style.color = '#dc2626';
+                    return;
+                }
+
+                // Estado de envio
+                submitButton.disabled = true;
+                submitButton.dataset.originalText = submitButton.textContent;
+                submitButton.textContent = 'Enviando...';
+
+                statusMsg.textContent = '⏳ Enviando sua mensagem...';
+                statusMsg.style.color = '#6b7280';
+
+                // Simula o tempo de comunicação com um servidor
+                const tempoEnvio = 1200 + Math.random() * 1200;
+
+                setTimeout(() => {
+
+                    // Simula uma resposta positiva do servidor
+                    const envioRealizado = true;
+
+                    if (envioRealizado) {
+
+                        statusMsg.textContent =
+                            '✅ Sua mensagem foi enviada com sucesso!';
+
+                        statusMsg.style.color = '#16a34a';
+
+                        // Limpa o formulário após o envio
+                        form.reset();
+
+                    } else {
+
+                        statusMsg.textContent =
+                            '❌ Não foi possível enviar sua mensagem. Tente novamente.';
+
+                        statusMsg.style.color = '#dc2626';
+                    }
+
+                    // Restaura o botão
+                    submitButton.disabled = false;
+                    submitButton.textContent =
+                        submitButton.dataset.originalText || 'Enviar mensagem';
+
+                }, tempoEnvio);
+            });
+        });
+    </script>
+</body>
+
+</html>

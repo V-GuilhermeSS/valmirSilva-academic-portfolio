@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfólio · Meu Site</title>
+    <!-- ESTILOS PRINCIPAIS-->
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Valmir G S da Silva · Portfólio Online</h1>
+    </header>
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sobre_mim.html">Sobre mim</a>
+        <a href="formacao.html">Formação</a>
+        <a href="portfolio.html" class="ativo">Portfólio</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <!-- ASIDE -->
+    <aside>
+        <h3>Nesta página</h3>
+        <h4>Abaixo estão alguns de meus trabalhos e Projetos.</h4>
+        <ul>
+            <li><a href="#projeto1">
+                    <img src="./img/Ship1.ico" alt="Nave do jogo"
+                        style="width:25px; height:25px; vertical-align:middle; margin-right:6px;">
+                    Mountain Shooter
+                </a></li>
+            <li><a href="#projeto2">
+                    <img src="./img/ícone_web.png" alt="ícone página web"
+                        style="width:30px; height:30px; vertical-align:middle; margin-right:6px;">
+                    Primeira Página Web
+                </a></li>
+            <li><a href="#projeto3">
+                    <img src="./img/ícone_automacao.png" alt="ícone automação industrial"
+                        style="width:35px; height:35px; vertical-align:middle; margin-right:6px;">
+                    Automação de Cortes de Chapas
+                </a></li>
+        </ul>
+        <p style="margin-top: 1.8rem; font-size:0.8rem; color:#5c7393; border-top:1px solid #d0dcee; padding-top:1rem;">
+            <span style="font-weight:500;">🖼️ Portfólio</span><br />
+            <span style="font-size:0.75rem;">Clique nos links acima para navegar dentro da página.</span>
+        </p>
+        <button class="dark-mode-toggle dark-mode-toggle-desktop" id="darkModeToggleDesktop">🌙 Modo Escuro</button>
+    </aside>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main-content">
+        <!-- SECTION com as seções internas -->
+        <section id="conteudo">
+            <!-- Projeto 1 -->
+            <div id="projeto1" class="secao-interna">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="./img/Ship1.ico" alt="Nave do jogo" style="width: 35px; height: 35px;">
+                    <h2 style="margin: 0;">Mountain Shooter</h2>
+                </div>
+
+                <div class="card-destaque">
+                    <span class="tag">Linguagem de Programação Aplicada</span>
+                    <p style="margin-top: 0.6rem;"><strong>Jogo 2D</strong> — Python</p>
+                    <span class="tag" style="margin-top: 0.8rem;">
+                        <a href="https://github.com/V-GuilhermeSS/MountainShooter"
+                            style="text-decoration: none; color: inherit;">
+                            Acesse o projeto aqui
+                        </a>
+                    </span>
+                </div>
+                <div style="display: flex; margin-top: 5rem; justify-content: center;">
+                    <img src="./img/imagem_mountain_shooter.png" alt="Imagem da tela do jogo"style="width: 60%; height: auto; float: right; margin-left: 1rem; margin-bottom: 1rem; margin-top: -3.75rem;">
+                </div>
+                
+                <p>Um jogo desenvolvido em Python, criado como parte do projeto da disciplina de Linguagens de
+                    Programação Aplicadas.
+                    O objetivo deste projeto é aplicar conceitos de programação, lógica e desenvolvimento de jogos em um
+                    ambiente prático.</p>
+            </div>
+
+            <!-- Projeto 2 -->
+            <div id="projeto2" class="secao-interna"
+                style="margin-top: 2.5rem; padding-top: 0.5rem; border-top: 2px dashed #dce3ef;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="./img/ícone_web.png" alt="ícone que simboliza a página" style="width: 40px; height: 40px;">
+                    <h2 style="margin: 0;">Primeira Página Web</h2>
+                </div>
+                <div class="card-destaque">
+                    <span class="tag">Página Web hospedada no GitHub Pages</span>
+                    <p style="margin-top: 0.6rem;"><strong>Trabalho referente a disciplina Fundamentos da Programação
+                            Web</strong> — HTML/CSS/JavaScript</p>
+                    <span class="tag" style="margin-top: 0.8rem;">
+                        <a href="https://github.com/V-GuilhermeSS/valmirSilva-academic-portfolio"
+                            style="text-decoration: none; color: inherit;">
+                            Acesse o projeto aqui
+                        </a>
+                    </span>
+                </div>
+                <div style="display: flex; margin-top: 5rem; justify-content: center;">
+                    <img src="./img/imagem_vs_code.png" alt="Amostra do código na tela do editor VS Code"style="width: 60%; height: auto; float: right; margin-left: 1rem; margin-bottom: 1rem; margin-top: -3.75rem;">
+                </div>
+                <p>O obejtivo da proposta do trabalho foi desenvolver um portfólio online pessoal, aplicando os
+                    conceitos de HTML5, CSS3 (sem
+                    frameworks) e JavaScript. O projeto são estas páginas e os arquivos estão em um repositório no
+                    GitHub e pode ser acessado através do link contido no card acima.</p>
+            </div>
+
+            <!-- Projeto 3 -->
+            <div id="projeto3" class="secao-interna"
+                style="margin-top: 2.5rem; padding-top: 0.5rem; border-top: 2px dashed #dce3ef;">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="./img/ícone_automacao.png" alt="ícone automação industrial"
+                        style="width: 50px; height: 50px;">
+                    <h2 style="margin: 0;">Automação de Corte de Chapas</h2>
+                </div>
+                <div class="card-destaque">
+                    <span class="tag">✍️ Conteúdo</span>
+                    <p style="margin-top: 0.6rem;"><strong>Automação de uma máquina de corte de chapas de granito e
+                            mármore</strong> — Linguagem LADDER</p>
+                </div>
+                <p>Projeto desenvolvido em parceria com o engenheiro elétrico Nilson Nunes, formado pela Universidade
+                    UNINTER.
+                    O objetivo é automatizar uma máquina de cortes retos por meio da implementação de um sistema
+                    supervisório, promovendo maior eficiência produtiva e aprimorando a segurança operacional.
+                    Essa iniciativa reforça o compromisso com a inovação e a integridade física dos operadores e do
+                    equipamento.
+                    Atualmente, o projeto encontra-se em fase de produção.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 — Meu Site · <a href="index.html">Início</a> · <a href="sobre_mim.html">Sobre mim</a> ·
+            <a href="formacao.html">Formação</a> · <a href="portfolio.html">Portfólio</a> · <a
+                href="contato.html">Contato</a></p>
+    </footer>
+
+    <script>
+        // ===== MODO ESCURO =====
+        // Alterna entre modo escuro e claro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+
+            // Atualiza o texto do botão
+            const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+            buttons.forEach(btn => {
+                btn.textContent = isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+            });
+
+            // Salva preferência no localStorage
+            localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+        }
+
+        // Carrega a preferência salva ao iniciar
+        function loadDarkModePreference() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+
+                // Atualiza o texto dos botões
+                const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+                buttons.forEach(btn => {
+                    btn.textContent = '☀️ Modo Claro';
+                });
+            }
+        }
+
+        // ===== INICIALIZAÇÃO =====
+        // Carrega preferência salva quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDarkModePreference();
+
+            // Adiciona event listeners aos botões
+            const desktopBtn = document.getElementById('darkModeToggleDesktop');
+            const mobileBtn = document.getElementById('darkModeToggleMobile');
+
+            if (desktopBtn) {
+                desktopBtn.addEventListener('click', toggleDarkMode);
+            }
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', toggleDarkMode);
+            }
+        });
+    </script>
+</body>
+
+</html>

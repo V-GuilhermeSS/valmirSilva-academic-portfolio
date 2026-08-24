@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Valmir G S da Silva · Portfólio Online</title>
+    <!-- ESTILOS PRINCIPAIS-->
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Valmir G S da Silva · Portfólio Online</h1>
+    </header>
+    <!-- NAV -->
+    <nav>
+        <a href="index.html" class="ativo">Início</a>
+        <a href="sobre_mim.html">Sobre mim</a>
+        <a href="formacao.html">Formação</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <!-- ASIDE -->
+    <aside>
+        <h3>Navegação</h3>
+        <ul>
+            <li><a href="sobre_mim.html">👤 Sobre mim</a></li>
+            <li><a href="formacao.html">📚 Formação</a></li>
+            <li><a href="portfolio.html">🖼️ Portfólio</a></li>
+            <li><a href="contato.html">📬 Contato</a></li>
+        </ul>
+        <p style="margin-top: 1.8rem; font-size:0.8rem; color:#5c7393; border-top:1px solid #d0dcee; padding-top:1rem;">
+            <span style="font-weight:500;">📌 Página inicial</span><br />
+            <span style="font-size:0.75rem;">Seja Bem vindo!</span>
+        </p>
+        <!-- Botão modo escuro no aside (desktop) -->
+        <button class="dark-mode-toggle dark-mode-toggle-desktop" id="darkModeToggleDesktop">🌙 Modo Escuro</button>
+    </aside>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main-content">
+        <!-- SECTION -->
+        <section id="conteudo">
+            <h2>Seja bem-vindo(a) à minha primeira página Web!</h2>
+            <img src="./img/foto_perfil_guilherme_02.jpeg" alt="Foto de Guilherme"
+                style="width: 14%; height: auto; float: right; margin-left: 1rem; margin-bottom: 1rem; margin-top: -5.5rem;">
+            <p><strong>Bem-vindo ao meu portfólio!</strong>
+                Aqui você encontra meus projetos e ideias, criados com dedicação e foco em inovação. Explore e aproveite
+                a visita! 🚀
+            </p>
+
+            <!-- Card Sobre mim -->
+            <div class="card-destaque">
+                <p style="margin-top: 0.6rem;">
+                    Conheça mais sobre minha trajetória, interesses e experiências na página.
+                </p>
+                <span class="tag"><a href="sobre_mim.html" style="text-decoration: none; color: inherit;">👤 Sobre
+                        mim</a></span>
+            </div>
+
+            <!-- Card Formação -->
+            <div class="card-destaque">
+                <p style="margin-top: 0.6rem;">
+                    Descubra minha formação acadêmica e cursos realizados acessando a página.
+                </p>
+                <span class="tag"><a href="formacao.html" style="text-decoration: none; color: inherit;">📚
+                        Formação</a></span>
+            </div>
+
+            <!-- Card Portfólio -->
+            <div class="card-destaque">
+                <p style="margin-top: 0.6rem;">
+                    Explore meus projetos e trabalhos desenvolvidos visitando a página.
+                </p>
+                <span class="tag"><a href="portfolio.html" style="text-decoration: none; color: inherit;">🖼️
+                        Portfólio</a></span>
+            </div>
+
+            <!-- Card Contato -->
+            <div class="card-destaque">
+                <p style="margin-top: 0.6rem;">
+                    Entre em contato comigo para colaborações ou dúvidas através da página.
+                </p>
+                <span class="tag"><a href="contato.html" style="text-decoration: none; color: inherit;">📬
+                        Contato</a></span>
+            </div>
+        </section>
+
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 — Meu Site · <a href="index.html">Início</a> · <a href="sobre_mim.html">Sobre mim</a> ·
+            <a href="formacao.html">Formação</a> · <a href="portfolio.html">Portfólio</a> · <a
+                href="contato.html">Contato</a>
+        </p>
+    </footer>
+    <script>
+        // ===== MODO ESCURO =====
+        // Alterna entre modo escuro e claro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+
+            // Atualiza o texto do botão
+            const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+            buttons.forEach(btn => {
+                btn.textContent = isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+            });
+
+            // Salva preferência no localStorage
+            localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+        }
+
+        // Carrega a preferência salva ao iniciar
+        function loadDarkModePreference() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+
+                // Atualiza o texto dos botões
+                const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+                buttons.forEach(btn => {
+                    btn.textContent = '☀️ Modo Claro';
+                });
+            }
+        }
+
+        // ===== INICIALIZAÇÃO =====
+        // Carrega preferência salva quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDarkModePreference();
+
+            // Adiciona event listeners aos botões
+            const desktopBtn = document.getElementById('darkModeToggleDesktop');
+            const mobileBtn = document.getElementById('darkModeToggleMobile');
+
+            if (desktopBtn) {
+                desktopBtn.addEventListener('click', toggleDarkMode);
+            }
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', toggleDarkMode);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formação · Meu Site</title>
+    <!-- ESTILOS PRINCIPAIS-->
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <h1>Valmir G S da Silva · Portfólio Online</h1>
+    </header>
+    <!-- NAV -->
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="sobre_mim.html">Sobre mim</a>
+        <a href="formacao.html" class="ativo">Formação</a>
+        <a href="portfolio.html">Portfólio</a>
+        <a href="contato.html">Contato</a>
+    </nav>
+    <!-- ASIDE - FIXO (sticky) -->
+    <aside>
+        <h3>Nesta página</h3>
+        <ul>
+            <li><a href="#cursos" class="ativo">Cursos</a></li>
+            <li><a href="#idiomas">Idiomas</a></li>
+            <li><a href="#formacoes">Formações mais recentes</a></li>
+        </ul>
+        <p style="margin-top: 1.8rem; font-size:0.8rem; color:#5c7393; border-top:1px solid #d0dcee; padding-top:1rem;">
+            <span style="font-weight:500;">📚 Formação</span><br />
+            <span style="font-size:0.75rem;">Clique nos links acima para navegar dentro da página.</span>
+        </p>
+        <button class="dark-mode-toggle dark-mode-toggle-desktop" id="darkModeToggleDesktop">🌙 Modo Escuro</button>
+    </aside>
+    <!-- CONTEÚDO PRINCIPAL -->
+    <div class="main-content">
+        <!-- SECTION -->
+        <section id="conteudo">
+            <!-- Cursos -->
+            <div id="cursos" class="secao-interna">
+                <h2>Cursos</h2>
+                <div class="card-destaque">
+                    <span class="tag">📜 Bacharelado</span>
+                    <p style="margin-top: 0.6rem;"><strong>Sistemas de Informações</strong> — Centro Universitário
+                        Internacional UNINTER (EaD)
+                    </p>
+                    <p>(Em andamento)</p>
+                </div>
+                <div class="card-destaque">
+                    <span class="tag">📜 New Ubest (Língua Inglesa)</span>
+                    <p style="margin-top: 0.6rem;"><strong>Sistemas de Informações</strong> — Centro Universitário
+                        Internacional UNINTER (EaD)</p>
+                    <p>(Em andamento)</p>
+                </div>
+                <div class="card-destaque">
+                    <span class="tag">📜 Conceitos Básicos de Redes
+                    </span>
+                    <p style="margin-top: 0.6rem;"><strong>Conceitos Básicos de Redes (Networking Basics)</strong> —
+                        Cisco Networking Academy</p>
+                    <span class="tag" style="margin-top: 0.8rem;">
+                        <a href="https://www.credly.com/badges/3561aa3e-926b-4104-97c0-f86d186c3028/public_url"
+                            style="text-decoration: none; color: inherit;">
+                            Link Público da Insígnia
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <!-- Idiomas -->
+            <div id="idiomas" class="secao-interna"
+                style="margin-top: 2.5rem; padding-top: 0.5rem; border-top: 2px dashed #dce3ef;">
+                <h2>📘 Idiomas</h2>
+                <div class="card-destaque">
+                    <span class="tag">💬 Idiomas e Vivência Internacional</span>
+                    <p style="margin-top: 0.6rem;"><strong>Inglês e Espanhol</strong> —
+                        leitura e escrita básica; experiência prática durante residência nos Estados Unidos (2004 —
+                        2009).</p>
+                    <br><br>
+                    <p>A vivência internacional entre 2004 e 2009 me proporcionou contato prático com o inglês e o
+                        espanhol, ampliando meus conhecimentos e permitindo conhecer aspectos culturais de ambos os
+                        povos. Apesar de ter adquirido essas habilidades no dia a dia, sigo fortalecendo meu inglês com
+                        um curso em andamento.</p>
+                </div>
+            </div>
+            <!-- Formações mais Recentes -->
+            <div id="formacoes" class="secao-interna"
+                style="margin-top: 2.5rem; padding-top: 0.5rem; border-top: 2px dashed #dce3ef;">
+                <h2>📌 Certificações</h2>
+                <ul>
+                    <li><strong>Conceitos Básicos de Redes (Networking Basics)</strong> — Cisco Networking Academy
+                        (2026)</li>
+                </ul>
+                <span class="tag" style="margin-top: 0.8rem;">
+                    <a href="https://www.credly.com/badges/3561aa3e-926b-4104-97c0-f86d186c3028/public_url"
+                        style="text-decoration: none; color: inherit;">
+                        Link Público da Insígnia
+                    </a>
+                </span>
+            </div>
+        </section>
+    </div>
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 — Meu Site · <a href="index.html">Início</a> · <a href="sobre_mim.html">Sobre mim</a> ·
+            <a href="formacao.html">Formação</a> · <a href="portfolio.html">Portfólio</a> · <a
+                href="contato.html">Contato</a></p>
+    </footer>
+
+    <script>
+        // ===== MODO ESCURO =====
+        // Alterna entre modo escuro e claro
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const isDarkMode = document.body.classList.contains('dark-mode');
+
+            // Atualiza o texto do botão
+            const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+            buttons.forEach(btn => {
+                btn.textContent = isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro';
+            });
+
+            // Salva preferência no localStorage
+            localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+        }
+
+        // Carrega a preferência salva ao iniciar
+        function loadDarkModePreference() {
+            const savedDarkMode = localStorage.getItem('darkMode');
+
+            if (savedDarkMode === 'true') {
+                document.body.classList.add('dark-mode');
+
+                // Atualiza o texto dos botões
+                const buttons = document.querySelectorAll('.dark-mode-toggle, .dark-mode-toggle-mobile');
+                buttons.forEach(btn => {
+                    btn.textContent = '☀️ Modo Claro';
+                });
+            }
+        }
+
+        // ===== INICIALIZAÇÃO =====
+        // Carrega preferência salva quando o DOM estiver pronto
+        document.addEventListener('DOMContentLoaded', function () {
+            loadDarkModePreference();
+
+            // Adiciona event listeners aos botões
+            const desktopBtn = document.getElementById('darkModeToggleDesktop');
+            const mobileBtn = document.getElementById('darkModeToggleMobile');
+
+            if (desktopBtn) {
+                desktopBtn.addEventListener('click', toggleDarkMode);
+            }
+
+            if (mobileBtn) {
+                mobileBtn.addEventListener('click', toggleDarkMode);
+            }
+        });
+    </script>
+</body>
+
+</html>
